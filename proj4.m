@@ -6,13 +6,14 @@ load('proj4.mat')
 numE(1:length(mcycl)) = -7.983928;  % analytical value
 nummM(1:length(mcycl)) = 3.994643;
 
-% plot
+%% plot
 figure
-semilogx(mcycl,energy/2^2,'Displayname','Numerical')
+plot(mcycl,energy/2^2,'Displayname','Numerical')
 hold on
-semilogx(mcycl,numE/2^2,'Displayname','Analytical')
+plot(mcycl,numE/2^2,'Displayname','Analytical')
 xlabel('Monte Carlo cycles','Fontsize',14)
-ylabel('<E>/L^2')
+ylabel('<E>/L^2','Fontsize',16)
+xlim([-1e5 1e6])
 lgd = legend('show');
 lgd.FontSize = 14;
 
@@ -22,11 +23,12 @@ lgd.FontSize = 14;
 % ylabel('<M>')
 
 figure
-semilogx(mcycl,meanmag/2^2,'Displayname','Numerical')
+plot(mcycl,meanmag/2^2,'Displayname','Numerical')
 hold on
-semilogx(mcycl,nummM/2^2,'Displayname','Analytical')
+plot(mcycl,nummM/2^2,'Displayname','Analytical')
 xlabel('Monte Carlo cycles','Fontsize',14)
-ylabel('<|M|>/L^2')
+ylabel('<|M|>/L^2','Fontsize',16)
+xlim([-1e5 1e6])
 lgd = legend('show');
 lgd.FontSize = 14;
 
@@ -58,23 +60,25 @@ lgd.FontSize = 14;
 % ylabel('Accepted configurations (normalized)','Fontsize',14)
 % xlabel('Monte Carlo cycles','Fontsize',14)
 
-% expectation values
+%% expectation values
 % T = 1.0 - ordered
 c_mc = partc1ord(:,1);  % mc cycles
 c_e1o = partc1ord(:,2); % energy
 c_m1o = partc1ord(:,3); % mag
 
 figure
-semilogx(c_mc,c_e1o./20^2)
+plot(c_mc,c_e1o./20^2)
 title('T = 1.0 J/k_B','Fontsize',14)
 xlabel('Monte Carlo cycles','Fontsize',14)
 ylabel('<E>/L^2','Fontsize',16)
+xlim([-1e5 1e6])
 
 figure
-semilogx(c_mc,c_m1o./20^2)
+plot(c_mc,c_m1o./20^2)
 title('T = 1.0 J/k_B','Fontsize',14)
 xlabel('Monte Carlo cycles','Fontsize',14)
 ylabel('<|M|>/L^2','Fontsize',16)
+xlim([-1e5 1e6])
 
 
 % T = 1.0 - random
@@ -82,16 +86,20 @@ c_e1r = partc1rnd(:,2);     % energy
 c_m1r = partc1rnd(:,3);     % mag
 
 figure
-semilogx(c_mc,c_e1r/20^2)
+plot(c_mc,c_e1r/20^2)
 title('T = 1.0 J/k_B','Fontsize',14)
 xlabel('Monte Carlo cycles','Fontsize',14)
 ylabel('<E>/L^2','Fontsize',16)
+xlim([-1e5 1e6])
+ylim([1.3 2.1])
 
 figure
-semilogx(c_mc,abs(c_m1r)/20^2)
+plot(c_mc,abs(c_m1r)/20^2)
 title('T = 1.0 J/k_B','Fontsize',14)
 xlabel('Monte Carlo cycles','Fontsize',14)
 ylabel('<|M|>/L^2','Fontsize',16)
+xlim([-1e5 1e6])
+ylim([0.2 1.1])
 
 
 % T = 2.4 - ordered
@@ -99,16 +107,18 @@ c_e24o = partc24ord(:,2);   % energy
 c_m24o = partc24ord(:,3);   % mag
 
 figure
-semilogx(c_mc,c_e24o./20^2)
+plot(c_mc,c_e24o./20^2)
 title('T = 2.4 J/k_B','Fontsize',14)
 xlabel('Monte Carlo cycles','Fontsize',14)
 ylabel('<E>/L^2','Fontsize',16)
+xlim([-1e5 1e6])
 
 figure
-semilogx(c_mc,c_m24o/20^2)
+plot(c_mc,c_m24o/20^2)
 title('T = 2.4 J/k_B','Fontsize',14)
 xlabel('Monte Carlo cycles','Fontsize',14)
 ylabel('<M>/L^2','Fontsize',16)
+xlim([-1e5 1e6])
 
 
 % T = 2.4 - random
@@ -116,16 +126,18 @@ c_e24r = partc24rnd(:,2);   % energy
 c_m24r = partc24rnd(:,3);   % mag
 
 figure
-semilogx(c_mc,c_e24r/20^2)
+plot(c_mc,c_e24r/20^2)
 title('T = 2.4 J/k_B','Fontsize',14)
 xlabel('Monte Carlo cycles','Fontsize',14)
 ylabel('<E>/L^2','Fontsize',16)
+xlim([-1e5 1e6])
 
 figure
-semilogx(c_mc,abs(c_m24r)/20^2)
+plot(c_mc,abs(c_m24r)/20^2)
 title('T = 2.4 J/k_B','Fontsize',14)
 xlabel('Monte Carlo cycles','Fontsize',14)
 ylabel('<M>/L^2','Fontsize',16)
+xlim([-1e5 1e6])
 
 
 %% part d
