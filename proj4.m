@@ -226,6 +226,42 @@ lgd = legend('show');
 lgd.FontSize = 14;
 
 
+%% Find Tc
+% using Cv
+maxCv20 = find(cv20 == max(cv20));
+maxCv40 = find(cv40 == max(cv40));
+maxCv60 = find(cv60 == max(cv60));
+maxCv80 = find(cv80 == max(cv80));
+maxCv100 = find(cv100 == max(cv100));
 
+Tc_cv20 = etemp(maxCv20);
+Tc_cv40 = etemp(maxCv40);
+Tc_cv60 = etemp(maxCv60);
+Tc_cv80 = etemp(maxCv80);
+Tc_cv100 = etemp(maxCv100);
+disp(['T_C(L=20) = ', num2str(Tc_cv20)])
+disp(['T_C(L=40) = ', num2str(Tc_cv40)])
+disp(['T_C(L=60) = ', num2str(Tc_cv60)])
+disp(['T_C(L=80) = ', num2str(Tc_cv80)])
+disp(['T_C(L=100) = ', num2str(Tc_cv100)])
+disp(newline)
 
+% using chi
+maxchi20 = find(xsi20 == max(xsi20));
+maxchi40 = find(xsi40 == max(xsi40));
+maxchi60 = find(xsi60 == max(xsi60));
+maxchi80 = find(xsi80 == max(xsi80));
+maxchi100 = find(xsi100 == max(xsi100));
+
+Tc_chi20 = etemp(maxchi20);
+Tc_chi40 = etemp(maxchi40);
+Tc_chi60 = etemp(maxchi60);
+Tc_chi80 = etemp(maxchi80);
+Tc_chi100 = etemp(maxchi100);
+disp(['T_C(L=20) = ', num2str(Tc_chi20)])
+disp(['T_C(L=40) = ', num2str(Tc_chi40)])
+disp(['T_C(L=60) = ', num2str(Tc_chi60)])
+disp(['T_C(L=80) = ', num2str(Tc_chi80)])
+disp(['T_C(L=100) = ', num2str(Tc_chi100)])
+disp(newline)
 
